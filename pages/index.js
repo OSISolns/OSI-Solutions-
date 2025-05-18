@@ -282,6 +282,20 @@ export default function Home() {
                   <i className="fab fa-whatsapp"></i> Send via WhatsApp
                 </button>
               </form>
+              <div className="contact-info">
+                <div className="info-item">
+                  <i className="fas fa-map-marker-alt"></i>
+                  <p>Kigali, Rwanda</p>
+                </div>
+                <div className="info-item">
+                  <i className="fas fa-phone"></i>
+                  <p>+250 788 647 452</p>
+                </div>
+                <div className="info-item">
+                  <i className="fas fa-envelope"></i>
+                  <p>valery.n@osisolutions.pro</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -400,12 +414,33 @@ export default function Home() {
           color: #2c3e50;
         }
         .contact-grid {
-          display: flex;
-          justify-content: center;
+          display: grid;
+          grid-template-columns: 62% 38%;
+          gap: 48px;
+          align-items: start;
         }
-        .contact-form {
-          max-width: 420px;
+        .contact-info {
+          background: #f8f9fa;
+          border-radius: 16px;
+          padding: 36px;
+          box-shadow: 0 4px 24px rgba(44,62,80,0.08);
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
           margin: 0 auto;
+          max-width: 340px;
+        }
+        .info-item {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          color: #ff6b33;
+          font-size: 1.2rem;
+        }
+        .info-item p {
+          margin: 0;
+          color: #2c3e50;
+          font-size: 1.1rem;
         }
         .business-hours {
           background: #fff;
