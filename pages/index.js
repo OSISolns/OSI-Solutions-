@@ -228,79 +228,60 @@ export default function Home() {
         <div className="container">
           <h2>Contact Us</h2>
           <div className="contact-content">
-            <form className="contact-form" onSubmit={handleWhatsApp}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Your Phone Number"
-                value={formData.phone}
-                onChange={handleInputChange}
-                required
-              />
-              <select
-                name="service"
-                value={formData.service}
-                onChange={handleInputChange}
-                required
-              >
-                <option value="">Select Service</option>
-                <option value="Web Development">Web Development</option>
-                <option value="Digital Marketing">Digital Marketing</option>
-                <option value="Cloud Engineering">Cloud Engineering</option>
-                <option value="Technical Support">Technical Support</option>
-                <option value="IT Infrastructure">IT Infrastructure</option>
-                <option value="Data Security">Data Security</option>
-                <option value="Software Development">Software Development</option>
-                <option value="Software Licensing">Software Licensing</option>
-                <option value="Hardware Solutions">Hardware Solutions</option>
-              </select>
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={handleInputChange}
-                required
-              ></textarea>
-              <button type="submit" className="cta-button whatsapp-btn">
-                <i className="fab fa-whatsapp"></i> Send via WhatsApp
-              </button>
-            </form>
-            <button
-              className="whatsapp-contact-btn"
-              onClick={handleWhatsApp}
-              style={{ marginTop: '16px' }}
-            >
-              <i className="fab fa-whatsapp whatsapp-icon"></i> Contact Us on WhatsApp
-            </button>
-            <div className="contact-info">
-              <div className="info-item">
-                <i className="fas fa-map-marker-alt"></i>
-                <p>Kigali, Rwanda</p>
-              </div>
-              <div className="info-item">
-                <i className="fas fa-phone"></i>
-                <p>+250 788 647 452</p>
-              </div>
-              <div className="info-item">
-                <i className="fas fa-envelope"></i>
-                <p>valery.osisolns@gmail.com</p>
-              </div>
+            <div className="contact-grid">
+              <form className="contact-form" onSubmit={handleWhatsApp}>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Your Phone Number"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  required
+                />
+                <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleInputChange}
+                  required
+                >
+                  <option value="">Select Service</option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="Digital Marketing">Digital Marketing</option>
+                  <option value="Cloud Engineering">Cloud Engineering</option>
+                  <option value="Technical Support">Technical Support</option>
+                  <option value="IT Infrastructure">IT Infrastructure</option>
+                  <option value="Data Security">Data Security</option>
+                  <option value="Software Development">Software Development</option>
+                  <option value="Software Licensing">Software Licensing</option>
+                  <option value="Hardware Solutions">Hardware Solutions</option>
+                </select>
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                ></textarea>
+                <button type="submit" className="cta-button whatsapp-btn">
+                  <i className="fab fa-whatsapp"></i> Send via WhatsApp
+                </button>
+              </form>
             </div>
           </div>
         </div>
@@ -357,6 +338,146 @@ export default function Home() {
         .whatsapp-btn:hover {
           background: #128C7E;
           transform: scale(1.05);
+        }
+        .business-hours {
+          background: #fff;
+          border-radius: 10px;
+          padding: 24px;
+          margin: 24px 0;
+          box-shadow: 0 2px 12px rgba(44,62,80,0.07);
+        }
+        .business-hours h3 {
+          color: #2c3e50;
+          font-size: 1.4rem;
+          margin-bottom: 20px;
+          text-align: center;
+        }
+        .hours-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .hours-item {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 12px;
+          background: #f8f9fa;
+          border-radius: 8px;
+        }
+        .hours-icon {
+          font-size: 1.5rem;
+        }
+        .hours-content {
+          text-align: left;
+        }
+        .hours-content h4 {
+          color: #2c3e50;
+          font-size: 1.1rem;
+          margin: 0 0 4px 0;
+        }
+        .hours-content p {
+          color: #666;
+          margin: 0;
+          font-size: 1rem;
+        }
+        @media (max-width: 700px) {
+          .business-hours {
+            padding: 20px;
+          }
+          .hours-item {
+            padding: 10px;
+          }
+        }
+        .contact {
+          background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+          padding: 80px 0;
+        }
+        .contact h2 {
+          font-size: 2.4rem;
+          margin-bottom: 48px;
+          text-align: center;
+          color: #2c3e50;
+        }
+        .contact-grid {
+          display: flex;
+          justify-content: center;
+        }
+        .contact-form {
+          max-width: 420px;
+          margin: 0 auto;
+        }
+        .business-hours {
+          background: #fff;
+          border-radius: 16px;
+          padding: 48px;
+          box-shadow: 0 4px 24px rgba(44,62,80,0.08);
+          animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+        .business-hours h3 {
+          color: #2c3e50;
+          font-size: 1.5rem;
+          margin-bottom: 30px;
+          text-align: center;
+        }
+        .hours-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+        .hours-item {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          padding: 24px;
+          background: #f8f9fa;
+          border-radius: 12px;
+          transition: transform 0.2s ease;
+        }
+        .hours-item:hover {
+          transform: translateY(-2px);
+        }
+        .hours-icon {
+          font-size: 1.8rem;
+        }
+        .hours-content {
+          text-align: left;
+        }
+        .hours-content h4 {
+          color: #2c3e50;
+          font-size: 1.2rem;
+          margin: 0 0 8px 0;
+        }
+        .hours-content p {
+          color: #666;
+          margin: 0;
+          font-size: 1.1rem;
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @media (max-width: 768px) {
+          .contact {
+            padding: 60px 0;
+          }
+          .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 36px;
+          }
+          .contact-form,
+          .business-hours {
+            padding: 36px;
+          }
+          .hours-item {
+            padding: 20px;
+          }
         }
       `}</style>
     </>
