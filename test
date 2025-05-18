@@ -1,0 +1,41 @@
+# Disable directory browsing
+Options -Indexes
+
+# Enable CORS
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type"
+
+# Protect against MIME-type sniffing
+Header set X-Content-Type-Options "nosniff"
+
+# Enable XSS protection
+Header set X-XSS-Protection "1; mode=block"
+
+# Prevent iframe embedding
+Header set X-Frame-Options "SAMEORIGIN"
+
+# Basic protection headers
+Header set X-Powered-By "OSI Solutions"
+Header set X-Protected-By "OSI Security"
+
+# Set Content Security Policy
+Header set Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https:;"
+
+# Cache control
+<FilesMatch "\.(html|htm|js|css)$">
+    Header set Cache-Control "private, no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</FilesMatch>
+
+# Protect specific files
+<Files .htaccess>
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files protect.js>
+    Order Allow,Deny
+    Deny from all
+</Files> 
