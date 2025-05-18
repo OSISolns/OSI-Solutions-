@@ -42,7 +42,7 @@ export default function Home() {
     e.preventDefault();
     const { name, email, phone, service, message } = formData;
     const text = encodeURIComponent(
-      `Hello OSI Solutions,%0AMy name is ${name}.%0AEmail: ${email}%0APhone: ${phone}%0AService: ${service}%0AMessage: ${message}`
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}`
     );
     window.open(`https://wa.me/250788647452?text=${text}`, '_blank');
   };
@@ -228,7 +228,7 @@ export default function Home() {
         <div className="container">
           <h2>Contact Us</h2>
           <div className="contact-content">
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form className="contact-form" onSubmit={handleWhatsApp}>
               <input
                 type="text"
                 name="name"
@@ -277,9 +277,8 @@ export default function Home() {
                 onChange={handleInputChange}
                 required
               ></textarea>
-              <button type="submit" className="cta-button" disabled={isSubmitting}>
-                <span className="button-text">Send Message</span>
-                {isSubmitting && <span className="button-loader"></span>}
+              <button type="submit" className="cta-button whatsapp-btn">
+                <i className="fab fa-whatsapp"></i> Send via WhatsApp
               </button>
             </form>
             <button
@@ -343,6 +342,21 @@ export default function Home() {
         }
         .whatsapp-icon {
           font-size: 1.5rem;
+        }
+        .whatsapp-btn {
+          background: #25D366;
+          color: #fff;
+          border: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-weight: 700;
+          font-size: 1.1rem;
+          transition: background 0.18s, transform 0.18s;
+        }
+        .whatsapp-btn:hover {
+          background: #128C7E;
+          transform: scale(1.05);
         }
       `}</style>
     </>
