@@ -38,6 +38,15 @@ export default function Home() {
     }
   };
 
+  const handleWhatsApp = (e) => {
+    e.preventDefault();
+    const { name, email, phone, service, message } = formData;
+    const text = encodeURIComponent(
+      `Hello OSI Solutions,%0AMy name is ${name}.%0AEmail: ${email}%0APhone: ${phone}%0AService: ${service}%0AMessage: ${message}`
+    );
+    window.open(`https://wa.me/250788647452?text=${text}`, '_blank');
+  };
+
   useEffect(() => {
     if (notification) {
       const timer = setTimeout(() => setNotification(null), 3000);
@@ -273,6 +282,13 @@ export default function Home() {
                 {isSubmitting && <span className="button-loader"></span>}
               </button>
             </form>
+            <button
+              className="whatsapp-contact-btn"
+              onClick={handleWhatsApp}
+              style={{ marginTop: '16px' }}
+            >
+              <i className="fab fa-whatsapp whatsapp-icon"></i> Contact Us on WhatsApp
+            </button>
             <div className="contact-info">
               <div className="info-item">
                 <i className="fas fa-map-marker-alt"></i>
@@ -302,6 +318,33 @@ export default function Home() {
           {notification.message}
         </div>
       )}
+
+      <style jsx>{`
+        .whatsapp-contact-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          background: #25D366;
+          color: #fff;
+          font-weight: 700;
+          font-size: 1.1rem;
+          padding: 14px 32px;
+          border-radius: 6px;
+          text-decoration: none;
+          margin: 0 auto;
+          box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+          transition: background 0.18s, transform 0.18s;
+          border: none;
+          cursor: pointer;
+        }
+        .whatsapp-contact-btn:hover {
+          background: #128C7E;
+          transform: scale(1.05);
+        }
+        .whatsapp-icon {
+          font-size: 1.5rem;
+        }
+      `}</style>
     </>
   );
 } 
