@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import emailjs from '@emailjs/browser';
+import Image from 'next/image';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -64,11 +65,11 @@ export default function Home() {
       <nav>
         <div className="container">
           <div className="logo">
-            <Link href="/" className="logo-link">
-              <svg className="logo-icon" width="32" height="32" viewBox="0 0 32 32">
-                <path fill="currentColor" d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm0 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 4c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8z"/>
-              </svg>
-              <span>OSI SOLUTIONS</span>
+            <Link href="/">
+              <span className="logo-link" style={{ display: 'flex', alignItems: 'center' }}>
+                <Image src="/images/logo.png" alt="OSI Solutions Logo" width={64} height={64} className="logo-img" priority />
+                <span>OSI SOLUTIONS</span>
+              </span>
             </Link>
           </div>
           <div className={`burger ${isMenuOpen ? 'toggle' : ''}`} onClick={toggleMenu}>
@@ -404,8 +405,26 @@ export default function Home() {
           }
         }
         .contact {
-          background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-          padding: 80px 0;
+          position: relative;
+          overflow: hidden;
+        }
+        .contact::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          width: 900px;
+          height: 900px;
+          background: url('/images/logo.png') no-repeat right center;
+          background-size: contain;
+          opacity: 0.06;
+          z-index: 0;
+          pointer-events: none;
+        }
+        .contact-content, .contact h2 {
+          position: relative;
+          z-index: 1;
         }
         .contact h2 {
           font-size: 2.4rem;
@@ -506,13 +525,24 @@ export default function Home() {
             font-size: 2rem;
             margin-bottom: 36px;
           }
+          .contact-grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+          }
           .contact-form,
-          .business-hours {
-            padding: 36px;
+          .contact-info {
+            max-width: 100%;
+            width: 100%;
+            padding: 24px;
+            margin: 0 auto;
           }
-          .hours-item {
-            padding: 20px;
-          }
+        }
+        .logo-img {
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 14px;
+          height: 64px;
+          width: 64px;
         }
       `}</style>
     </>
