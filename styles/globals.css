@@ -25,6 +25,155 @@ body {
     color: #333;
 }
 
+body.dark {
+    background: #181a1b;
+    color: #f4f6f9;
+}
+
+body.dark nav {
+    background: rgba(24, 26, 27, 0.85);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+body.dark .nav-links a {
+    color: #f4f6f9;
+}
+
+body.dark .nav-links a:hover {
+    color: #ff6b33;
+}
+
+body.dark .logo span {
+    -webkit-text-fill-color: #fff;
+}
+
+body.dark .hero {
+    background: linear-gradient(rgba(24, 26, 27, 0.95), rgba(24, 26, 27, 0.98)), url('/images/background.jpg') center/cover;
+    color: #f4f6f9;
+}
+
+body.dark .services, body.dark .about {
+    background: #232526;
+}
+
+body.dark .service-card {
+    background: #232526;
+    color: #f4f6f9;
+}
+
+body.dark .contact-info, body.dark .business-hours {
+    background: #232526;
+    color: #f4f6f9;
+}
+
+body.dark .info-item p {
+    color: #f4f6f9;
+}
+
+body.dark footer {
+    background: #181a1b;
+    color: #f4f6f9;
+}
+
+body.dark .about {
+    background: #232526 !important;
+    color: #f4f6f9 !important;
+}
+body.dark .about .section-intro,
+body.dark .about h2,
+body.dark .about-content,
+body.dark .about-text,
+body.dark .about-stats,
+body.dark .about-stats .stat,
+body.dark .about-text .phrase,
+body.dark .about-text .highlight {
+    color: #f4f6f9 !important;
+    background: #232526 !important;
+}
+body.dark .about-text,
+body.dark .about-stats .stat {
+    background: #232526 !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+}
+body.dark .about-text::before,
+body.dark .stat::before {
+    background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+    opacity: 0.15;
+}
+body.dark .phrase::before {
+    background: #ff6b33 !important;
+}
+body.dark .services {
+    background: #232526 !important;
+    color: #f4f6f9 !important;
+}
+body.dark .service-card {
+    background: #232526 !important;
+    color: #f4f6f9 !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+}
+body.dark .service-card h3,
+body.dark .service-card-body,
+body.dark .service-card p,
+body.dark .service-link {
+    color: #f4f6f9 !important;
+}
+body.dark .service-link {
+    color: #ff6b33 !important;
+}
+body.dark .service-card-header::after {
+    background: #ff6b33 !important;
+}
+body.dark .contact {
+    background: #232526 !important;
+    color: #f4f6f9 !important;
+}
+body.dark .contact-form {
+    background: #232526 !important;
+    color: #f4f6f9 !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+}
+body.dark .contact-form input,
+body.dark .contact-form textarea,
+body.dark .contact-form select {
+    background: #181a1b !important;
+    color: #f4f6f9 !important;
+    border: 1px solid #444 !important;
+}
+body.dark .contact-form input::placeholder,
+body.dark .contact-form textarea::placeholder {
+    color: #aaa !important;
+}
+body.dark .contact-info {
+    background: #232526 !important;
+    color: #f4f6f9 !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+}
+body.dark .info-item p {
+    color: #f4f6f9 !important;
+}
+body.dark .cta-button {
+    background: #ff6b33 !important;
+    color: #fff !important;
+}
+body.dark .cta-button:hover {
+    background: #e65721 !important;
+}
+body.dark footer {
+    background: #181a1b !important;
+    color: #f4f6f9 !important;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark .section-intro {
+  color: #fff !important;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -33,7 +182,7 @@ body {
 
 /* Navigation */
 nav {
-    background: rgba(255, 255, 255, 0.5);  /* White with 50% opacity */
+    background: rgba(255, 255, 255, 0.2);  /* White with 20% opacity */
     backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
@@ -1180,4 +1329,22 @@ input, textarea {
     .nav-overlay.active {
         display: block;
     }
+}
+
+body.dark .about-text {
+    background: #232526 !important;
+    color: #fff !important;
+}
+body.dark .about-text .phrase,
+body.dark .about-text .highlight {
+    background: transparent !important;
+    color: #fff !important;
+}
+body.dark .about-text .phrase strong,
+body.dark .about-text .phrase b {
+    color: #fff !important;
+}
+
+body.dark .stat p {
+  color: #fff !important;
 } 
