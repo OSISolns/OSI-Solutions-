@@ -1347,4 +1347,46 @@ body.dark .about-text .phrase b {
 
 body.dark .stat p {
   color: #fff !important;
+}
+
+body.dark .services-hero,
+body.dark .services-grid-section,
+body.dark .tech-blog-section,
+body.dark .business-hours-section {
+  background: #232526 !important;
+  color: #fff !important;
+}
+body.dark .services-title,
+body.dark .services-intro,
+body.dark .tech-blog-title,
+body.dark .business-hours-title {
+  color: #fff !important;
+}
+body.dark .service-card-pro,
+body.dark .blog-post-card,
+body.dark .business-hours-card {
+  background: #232526 !important;
+  color: #fff !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+}
+body.dark .service-card-header-pro h2,
+body.dark .service-card-desc-pro,
+body.dark .service-features-list-pro,
+body.dark .feature-check-pro,
+body.dark .blog-post-card h3,
+body.dark .blog-post-card p,
+body.dark .blog-read-more,
+body.dark .hours-item,
+body.dark .hours-content,
+body.dark .hours-content h3,
+body.dark .hours-content p {
+  color: #fff !important;
+}
+body.dark .site-footer {
+  background: #181a1b !important;
+  color: #f4f6f9 !important;
+}
+
+body.dark .service-features-list-pro li {
+  color: #fff !important;
 } 
