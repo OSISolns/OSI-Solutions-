@@ -15,6 +15,7 @@ export default function Home() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [notification, setNotification] = useState(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -55,11 +56,24 @@ export default function Home() {
     }
   }, [notification]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 200);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <>
       <Head>
-        <title>OSI Solutions Ltd - IT Solutions & Services</title>
-        <meta name="description" content="IT solutions and services provider specializing in web development, digital marketing, cloud engineering, and IT infrastructure." />
+        <title>OSI Solutions Ltd - Leading IT Solutions & Services in Kigali, Rwanda</title>
+        <meta name="description" content="Premier IT solutions and services provider in Kigali, Rwanda, specializing in web development, digital marketing, cloud engineering, and IT infrastructure since 2018." />
+        <meta name="keywords" content="IT solutions Kigali, IT services Rwanda, web development Kigali, digital marketing Rwanda, cloud engineering Kigali, IT infrastructure Rwanda" />
       </Head>
 
       <nav>
@@ -88,8 +102,8 @@ export default function Home() {
 
       <section id="home" className="hero">
         <div className="container">
-          <h1>Transform Your Business with Modern IT Solutions</h1>
-          <p>Your trusted technology partner since 2018</p>
+          <h1>Transform Your Business with Modern IT Solutions in Kigali, Rwanda</h1>
+          <p>Your trusted technology partner in Rwanda since 2018</p>
           <Link href="#contact" className="cta-button">Get Started</Link>
         </div>
       </section>
@@ -182,8 +196,8 @@ export default function Home() {
 
       <section id="about" className="about">
         <div className="container">
-          <h2>About Us</h2>
-          <p className="section-intro">Learn more about OSI Solutions and our journey to becoming a leading IT solutions provider in Rwanda and beyond.</p>
+          <h2>About OSI Solutions</h2>
+          <p className="section-intro">Leading the digital transformation in Kigali, Rwanda with innovative IT solutions and expert services.</p>
           <div className="about-content">
             <div className="about-text">
               <div className="phrase-container">
@@ -228,6 +242,7 @@ export default function Home() {
       <section id="contact" className="contact">
         <div className="container">
           <h2>Contact Us</h2>
+          <p className="section-intro">Get in touch with our team in Kigali, Rwanda for all your IT needs</p>
           <div className="contact-content">
             <div className="contact-grid">
               <form className="contact-form" onSubmit={handleWhatsApp}>
@@ -312,6 +327,12 @@ export default function Home() {
         <div className={`notification ${notification.type}`}>
           {notification.message}
         </div>
+      )}
+
+      {showScrollTop && (
+        <button className="scroll-to-top" onClick={scrollToTop} aria-label="Back to top">
+          <i className="fas fa-arrow-up"></i>
+        </button>
       )}
 
       <style jsx>{`
@@ -543,6 +564,38 @@ export default function Home() {
           margin-right: 14px;
           height: 64px;
           width: 64px;
+        }
+        .scroll-to-top {
+          position: fixed;
+          right: 28px;
+          bottom: 32px;
+          z-index: 1000;
+          background: #ff6b33;
+          color: #fff;
+          border: none;
+          border-radius: 50%;
+          width: 48px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.6rem;
+          box-shadow: 0 4px 16px rgba(44,62,80,0.18);
+          cursor: pointer;
+          transition: background 0.18s, transform 0.18s;
+        }
+        .scroll-to-top:hover {
+          background: #e65721;
+          transform: scale(1.08);
+        }
+        @media (max-width: 700px) {
+          .scroll-to-top {
+            right: 16px;
+            bottom: 18px;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+          }
         }
       `}</style>
     </>
