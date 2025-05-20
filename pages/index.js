@@ -81,7 +81,15 @@ export default function Home() {
           <div className="logo">
             <Link href="/">
               <span className="logo-link" style={{ display: 'flex', alignItems: 'center' }}>
-                <Image src="/images/logo.png" alt="OSI Solutions Logo" width={64} height={64} className="logo-img" priority />
+                <Image 
+                  src="/images/logo.png" 
+                  alt="OSI Solutions Logo" 
+                  width={64} 
+                  height={64} 
+                  className="logo-img" 
+                  priority 
+                  unoptimized
+                />
                 <span>OSI SOLUTIONS</span>
               </span>
             </Link>
