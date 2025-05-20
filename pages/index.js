@@ -16,6 +16,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [notification, setNotification] = useState(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -64,6 +65,22 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // On mount, check localStorage for dark mode preference
+    const stored = localStorage.getItem('darkMode');
+    if (stored === 'true') setDarkMode(true);
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark');
+      localStorage.setItem('darkMode', 'true');
+    } else {
+      document.body.classList.remove('dark');
+      localStorage.setItem('darkMode', 'false');
+    }
+  }, [darkMode]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -93,11 +110,6 @@ export default function Home() {
               </span>
             </Link>
           </div>
-          <div className={`burger ${isMenuOpen ? 'toggle' : ''}`} onClick={toggleMenu}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
           <ul className={`nav-links ${isMenuOpen ? 'nav-active' : ''}`}>
             <li><Link href="#home">Home</Link></li>
             <li><Link href="#services">Our Services</Link></li>
@@ -106,6 +118,18 @@ export default function Home() {
           </ul>
         </div>
       </nav>
+
+      <button
+        className="dark-mode-toggle-fixed"
+        onClick={() => setDarkMode((d) => !d)}
+        aria-label="Toggle dark mode"
+      >
+        {darkMode ? (
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+        ) : (
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        )}
+      </button>
 
       <section id="home" className="hero">
         <div className="container">
@@ -602,6 +626,41 @@ export default function Home() {
             width: 40px;
             height: 40px;
             font-size: 1.2rem;
+          }
+        }
+      `}</style>
+
+      <style jsx global>{`
+        .dark-mode-toggle-fixed {
+          position: fixed;
+          top: 18px;
+          right: 24px;
+          z-index: 2000;
+          font-size: 2rem;
+          background: none;
+          color: #222;
+          border: none;
+          border-radius: 50%;
+          width: 48px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: none;
+          cursor: pointer;
+          transition: color 0.2s;
+        }
+        body.dark .dark-mode-toggle-fixed {
+          color: #fff;
+          background: none;
+        }
+        @media (max-width: 700px) {
+          .dark-mode-toggle-fixed {
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
           }
         }
       `}</style>
