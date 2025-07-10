@@ -17,7 +17,6 @@ export default function Document() {
           }}
         />
         {/* Preload critical resources */}
-        <link rel="preload" href="/styles/globals.css" as="style" />
         <link rel="preload" href="/images/background.jpg" as="image" type="image/jpeg" />
         {/* Fonts */}
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />

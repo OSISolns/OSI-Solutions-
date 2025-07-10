@@ -113,11 +113,65 @@ export default function Services() {
           </div>
         </div>
       </section>
+      {/* Business Hours Section */}
+      <section className="business-hours-section">
+        <div className="container">
+          <h2 className="business-hours-title">Business Hours</h2>
+          <div className="business-hours-grid">
+            <div className="business-hours-card">
+              <div className="hours-item">
+                <span className="hours-icon">🕒</span>
+                <div className="hours-content">
+                  <h3>Monday – Friday</h3>
+                  <p>8:00 AM – 6:00 PM</p>
+                </div>
+              </div>
+              <div className="hours-item">
+                <span className="hours-icon">📅</span>
+                <div className="hours-content">
+                  <h3>Saturday</h3>
+                  <p>9:00 AM – 2:00 PM</p>
+                </div>
+              </div>
+              <div className="hours-item">
+                <span className="hours-icon">🚫</span>
+                <div className="hours-content">
+                  <h3>Sunday</h3>
+                  <p>Closed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Tech Blog Section */}
+      <section className="tech-blog-section">
+        <div className="container">
+          <h2 className="tech-blog-title">Tech Blog & Knowledge Base</h2>
+          <div className="tech-blog-grid">
+            <div className="blog-post-card">
+              <h3>5 Ways to Secure Your Small Business Network</h3>
+              <p>Learn practical steps to protect your business from cyber threats, including strong passwords, firewalls, regular updates, employee training, and secure Wi-Fi.</p>
+              <a href="#" className="blog-read-more">Read More</a>
+            </div>
+            <div className="blog-post-card">
+              <h3>Why POS Systems Fail — and How to Prevent It</h3>
+              <p>Discover the common reasons POS systems break down, from hardware issues to software bugs, and get tips on maintenance, backups, and choosing reliable vendors.</p>
+              <a href="#" className="blog-read-more">Read More</a>
+            </div>
+            <div className="blog-post-card">
+              <h3>Laravel vs Next.js for Web Apps</h3>
+              <p>Which framework is right for your next project? We compare Laravel and Next.js in terms of performance, scalability, developer experience, and use cases.</p>
+              <a href="#" className="blog-read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Footer */}
       <footer className="site-footer">
         <div className="container">
           <p>&copy; {new Date().getFullYear()} OSI Solutions Ltd. All rights reserved.</p>
-          <p>Contact: <a href="mailto:valery.n@osisolutions.com">valery.n@osisolutions.com</a> | Kigali, Rwanda</p>
+          <p>Kigali, Rwanda</p>
         </div>
       </footer>
       <style jsx>{`
@@ -315,6 +369,123 @@ export default function Services() {
         }
         .site-footer a:hover {
           color: #fff;
+        }
+        .tech-blog-section {
+          background: #fff;
+          padding: 60px 0 40px 0;
+          text-align: center;
+        }
+        .tech-blog-title {
+          font-size: 2rem;
+          color: #2c3e50;
+          margin-bottom: 32px;
+          font-weight: 700;
+        }
+        .tech-blog-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 32px;
+          justify-content: center;
+        }
+        .blog-post-card {
+          background: #f4f6f9;
+          border-radius: 10px;
+          box-shadow: 0 2px 12px rgba(44,62,80,0.07);
+          padding: 28px 24px;
+          max-width: 340px;
+          min-width: 260px;
+          font-size: 1.08rem;
+          color: #333;
+          text-align: left;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .blog-post-card h3 {
+          color: #ff6b33;
+          font-size: 1.18rem;
+          font-weight: 700;
+          margin-bottom: 12px;
+        }
+        .blog-post-card p {
+          margin-bottom: 18px;
+        }
+        .blog-read-more {
+          color: #ff6b33;
+          font-weight: 600;
+          text-decoration: none;
+          margin-top: auto;
+          transition: color 0.18s;
+        }
+        .blog-read-more:hover {
+          color: #e65721;
+          text-decoration: underline;
+        }
+        @media (max-width: 700px) {
+          .tech-blog-grid {
+            flex-direction: column;
+            gap: 18px;
+          }
+        }
+        .business-hours-section {
+          background: #f4f6f9;
+          padding: 60px 0;
+          text-align: center;
+        }
+        .business-hours-title {
+          font-size: 2rem;
+          color: #2c3e50;
+          margin-bottom: 32px;
+          font-weight: 700;
+        }
+        .business-hours-grid {
+          display: flex;
+          justify-content: center;
+          padding: 0 20px;
+        }
+        .business-hours-card {
+          background: #fff;
+          border-radius: 14px;
+          box-shadow: 0 4px 24px rgba(44,62,80,0.07);
+          padding: 36px;
+          max-width: 500px;
+          width: 100%;
+        }
+        .hours-item {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          padding: 16px 0;
+          border-bottom: 1px solid #eee;
+        }
+        .hours-item:last-child {
+          border-bottom: none;
+        }
+        .hours-icon {
+          font-size: 1.8rem;
+        }
+        .hours-content {
+          text-align: left;
+        }
+        .hours-content h3 {
+          color: #2c3e50;
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin: 0 0 4px 0;
+        }
+        .hours-content p {
+          color: #666;
+          margin: 0;
+          font-size: 1.1rem;
+        }
+        @media (max-width: 700px) {
+          .business-hours-card {
+            padding: 24px;
+          }
+          .hours-item {
+            padding: 12px 0;
+          }
         }
       `}</style>
     </>
