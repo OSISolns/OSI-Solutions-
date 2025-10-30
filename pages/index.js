@@ -91,30 +91,68 @@ export default function Home() {
         <title>OSI Solutions Ltd - Leading IT Solutions & Services in Kigali, Rwanda</title>
         <meta name="description" content="Premier IT solutions and services provider in Kigali, Rwanda, specializing in web development, digital marketing, cloud engineering, and IT infrastructure since 2018." />
         <meta name="keywords" content="IT solutions Kigali, IT services Rwanda, web development Kigali, digital marketing Rwanda, cloud engineering Kigali, IT infrastructure Rwanda" />
+        {/* Open Graph */}
+        <meta property="og:title" content="OSI Solutions Ltd - IT Solutions & Services" />
+        <meta property="og:description" content="Trusted technology partner in Rwanda since 2018. Web, Cloud, Marketing, Support." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.osisolutions.pro/" />
+        <meta property="og:image" content="/images/logo.png" />
+        {/* Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="OSI Solutions Ltd - IT Solutions & Services" />
+        <meta name="twitter:description" content="Trusted technology partner in Rwanda since 2018. Web, Cloud, Marketing, Support." />
+        <meta name="twitter:image" content="/images/logo.png" />
+        {/* JSON-LD Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'OSI Solutions Ltd',
+              url: 'https://www.osisolutions.pro',
+              logo: 'https://www.osisolutions.pro/images/logo.png',
+              description:
+                'IT solutions and services provider specializing in web development, digital marketing, cloud engineering, and IT infrastructure.',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Kigali',
+                addressCountry: 'Rwanda'
+              },
+              contactPoint: {
+                '@type': 'ContactPoint',
+                telephone: '+250 788 647 452',
+                contactType: 'customer service',
+                email: 'valery.n@osisolutions.pro'
+              },
+              sameAs: []
+            })
+          }}
+        />
       </Head>
 
       <nav>
         <div className="container">
-          <div className="logo">
+          <div className="logo" aria-label="OSI Solutions logo">
             <Link href="/">
               <span className="logo-link" style={{ display: 'flex', alignItems: 'center' }}>
-                <img 
-                  src="/images/logo.png" 
-                  alt="OSI Solutions Logo" 
-                  width={64} 
-                  height={64} 
-                  className="logo-img" 
-                  style={{ display: 'block' }}
+                <Image
+                  src="/images/logo.png"
+                  alt="OSI Solutions logo"
+                  width={64}
+                  height={64}
+                  className="logo-img"
+                  priority
                 />
                 <span>OSI SOLUTIONS</span>
               </span>
             </Link>
           </div>
           <ul className={`nav-links ${isMenuOpen ? 'nav-active' : ''}`}>
-            <li><Link href="#home">Home</Link></li>
-            <li><Link href="#services">Our Services</Link></li>
-            <li><Link href="#about">About Us</Link></li>
-            <li><Link href="#contact">Contact Us</Link></li>
+            <li><Link href="#home" aria-label="Go to Home section">Home</Link></li>
+            <li><Link href="#services" aria-label="Go to Services section">Our Services</Link></li>
+            <li><Link href="#about" aria-label="Go to About section">About Us</Link></li>
+            <li><Link href="#contact" aria-label="Go to Contact section">Contact Us</Link></li>
           </ul>
         </div>
       </nav>
@@ -135,7 +173,7 @@ export default function Home() {
         <div className="container">
           <h1>Transform Your Business with Modern IT Solutions in Kigali, Rwanda</h1>
           <p>Your trusted technology partner in Rwanda since 2018</p>
-          <Link href="#contact" className="cta-button">Get Started</Link>
+          <Link href="#contact" className="cta-button" aria-label="Get started by contacting us">Get Started</Link>
         </div>
       </section>
 
@@ -276,7 +314,7 @@ export default function Home() {
           <p className="section-intro">Get in touch with our team in Kigali, Rwanda for all your IT needs</p>
           <div className="contact-content">
             <div className="contact-grid">
-              <form className="contact-form" onSubmit={handleWhatsApp}>
+              <form className="contact-form" onSubmit={handleWhatsApp} aria-label="Contact form">
                 <input
                   type="text"
                   name="name"
@@ -284,6 +322,7 @@ export default function Home() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
+                  aria-label="Full name"
                 />
                 <input
                   type="email"
@@ -292,6 +331,7 @@ export default function Home() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
+                  aria-label="Email address"
                 />
                 <input
                   type="tel"
@@ -300,12 +340,14 @@ export default function Home() {
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
+                  aria-label="Phone number"
                 />
                 <select
                   name="service"
                   value={formData.service}
                   onChange={handleInputChange}
                   required
+                  aria-label="Service selection"
                 >
                   <option value="">Select Service</option>
                   <option value="Web Development">Web Development</option>
@@ -324,6 +366,7 @@ export default function Home() {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
+                  aria-label="Your message"
                 ></textarea>
                 <button type="submit" className="cta-button whatsapp-btn">
                   <i className="fab fa-whatsapp"></i> Send via WhatsApp
